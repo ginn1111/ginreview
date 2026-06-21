@@ -125,6 +125,32 @@ When reviewing local changes, present findings in this structure:
 
 ## 2. Reviewing a Pull Request on GitHub
 
+### GitLab merge requests (same local review pattern)
+
+Despite the skill name, the local-review workflow also applies to GitLab merge requests when the repo remote is GitLab.
+
+Quick path:
+
+```bash
+# Metadata / description
+if command -v glab &>/dev/null; then
+  glab mr view 29
+fi
+
+# Fetch MR head locally for full diff + file inspection
+git fetch origin refs/merge-requests/29/head:mr-29
+
+# Review against target branch
+# replace develop with the MR target branch when different
+git diff origin/develop...mr-29 --stat
+git diff origin/develop...mr-29
+```
+
+Notes:
+- GitLab exposes MR refs at `refs/merge-requests/<id>/head`.
+- After fetching, treat `mr-<id>` like any other local review branch: use `read_file`, `search_files`, and run tests locally.
+- When reviewing a widget/frontend MR, still verify against repo-specific rules from local agent docs before commenting.
+
 ### View PR Details
 
 **With gh:**
@@ -339,9 +365,20 @@ source "${HERMES_HOME:-$HOME/.hermes}/skills/github/github-auth/scripts/gh-env.s
 # Or run the inline setup block from the top of this skill
 ```
 
-### Step 2: Gather PR context
+### Step 2: Gather PR/MR context
 
-Get the PR metadata, description, and list of changed files to understand scope before diving into code.
+Get the PR/MR metadata, description, target branch, and list of changed files to understand scope before diving into code.
+
+For GitLab MRs, fetch the target branch explicitly and diff against that branch, not your current local branch. Typical flow:
+
+```bash
+git fetch origin develop
+git fetch origin refs/merge-requests/$MR_NUMBER/head:mr-$MR_NUMBER
+git diff --stat origin/develop...mr-$MR_NUMBER
+git diff origin/develop...mr-$MR_NUMBER
+```
+
+This avoids reviewing against stale local state and works even when the current checkout is not the MR branch.
 
 **With gh:**
 ```bash

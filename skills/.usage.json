@@ -1,0 +1,54 @@
+{
+  "dogfood": {
+    "archived_at": null,
+    "created_at": "2026-06-15T07:03:45.528141+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-15T07:09:20.560799+00:00",
+    "last_used_at": "2026-06-15T07:03:45.530771+00:00",
+    "last_viewed_at": "2026-06-15T07:03:45.528153+00:00",
+    "patch_count": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
+  "github-code-review": {
+    "archived_at": null,
+    "created_at": "2026-06-19T08:36:31.370955+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-19T08:39:43.847752+00:00",
+    "last_used_at": "2026-06-19T08:36:31.373994+00:00",
+    "last_viewed_at": "2026-06-19T08:36:31.370964+00:00",
+    "patch_count": 2,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
+  "plan": {
+    "archived_at": null,
+    "created_at": "2026-06-15T06:57:39.214625+00:00",
+    "created_by": null,
+    "last_patched_at": null,
+    "last_used_at": "2026-06-15T06:57:49.268286+00:00",
+    "last_viewed_at": "2026-06-15T06:57:49.265161+00:00",
+    "patch_count": 0,
+    "pinned": false,
+    "state": "active",
+    "use_count": 2,
+    "view_count": 1
+  },
+  "requesting-code-review": {
+    "archived_at": null,
+    "created_at": "2026-06-15T06:46:30.151276+00:00",
+    "created_by": null,
+    "last_patched_at": "2026-06-15T07:11:47.295064+00:00",
+    "last_used_at": "2026-06-19T08:19:48.754682+00:00",
+    "last_viewed_at": "2026-06-19T08:19:48.752045+00:00",
+    "patch_count": 2,
+    "pinned": false,
+    "state": "active",
+    "use_count": 3,
+    "view_count": 3
+  }
+}

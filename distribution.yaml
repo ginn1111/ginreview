@@ -1,17 +1,13 @@
 name: ginreview
 version: 1.0.0
-description: "Autonomous review code assistant"
-hermes_requires: ">=0.12.0"
-author: "Gin"
-license: "MIT"
-
-# Tell installers which env vars the agent needs. These are checked against
-# the installer's shell and existing .env file so they don't get nagged
-# about keys they already have configured.
+description: Autonomous review code assistant
+hermes_requires: '>=0.12.0'
+author: Gin
+license: MIT
 env_requires:
-  - name: OPENAI_API_KEY
-    description: "OpenAI API key (for model access)"
-    required: true
-  - name: OPENAI_BASE_URL
-    description: "OpenAI base url (for model access)"
-    required: true
+- name: OPENAI_API_KEY
+  description: OpenAI API key (for model access)
+- name: OPENAI_BASE_URL
+  description: OpenAI base url (for model access)
+source: https://github.com/ginn1111/ginreview
+installed_at: '2026-06-15T06:40:30+00:00'

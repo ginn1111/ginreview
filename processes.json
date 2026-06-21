@@ -1,0 +1,21 @@
+[
+  {
+    "session_id": "proc_7d30577e0d12",
+    "command": "pnpm dev",
+    "pid": 3979177,
+    "pid_scope": "host",
+    "cwd": "/home/aioz/workspace/aioz-world-deck/.worktrees/mr-23-review",
+    "started_at": 1781507067.2111142,
+    "task_id": "default",
+    "session_key": "20260615_134609_dcb729",
+    "watcher_platform": "",
+    "watcher_chat_id": "",
+    "watcher_user_id": "",
+    "watcher_user_name": "",
+    "watcher_thread_id": "",
+    "watcher_message_id": "",
+    "watcher_interval": 0,
+    "notify_on_complete": false,
+    "watch_patterns": []
+  }
+]

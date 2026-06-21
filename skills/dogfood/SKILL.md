@@ -160,3 +160,23 @@ Save the report to `{output_dir}/report.md`.
 - **Check responsive behavior** by noting any layout issues visible in screenshots.
 - **Don't forget edge cases**: empty states, very long text, special characters, rapid clicking.
 - When reporting screenshots to the user, include `MEDIA:<screenshot_path>` so they can see the evidence inline.
+
+## Pitfall: local Next.js app serves a blank page with no visible console error
+
+When dogfooding a local dev build (especially from a git worktree), you may get all of these at once:
+- `curl` to the app URL returns `200 OK`
+- page title renders
+- browser snapshot says `(empty page)`
+- screen is solid black / blank
+- browser console has little or no obvious JS error text
+
+Do **not** assume the app is healthy just because the dev server is up.
+
+Triage in this order:
+1. Use `browser_vision` to capture proof of the blank page.
+2. Use `browser_console(expression='document.documentElement.outerHTML.slice(0,2000)')` to confirm scripts/styles are being emitted.
+3. Inspect loaded resource names with `browser_console(expression='performance.getEntriesByType("resource").map(r => r.name)')`.
+4. If chunk/resource names reference a **different worktree or checkout path** than the one you launched, suspect stale Turbopack / Next dev artifacts.
+5. Treat that as a blocker for feature QA: record it as runtime evidence first, then switch to debugging startup/caching instead of pretending feature review happened.
+
+This prevents false feature-level conclusions when the real failure is that the local app never rendered at all.
